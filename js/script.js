@@ -14,20 +14,22 @@ $(document).ready(function() {
     var userChoice;
     var computerChoice = "";
     var winner = "";
-    
+    var rpsls = ["rock", "paper", "scissors", "lizard", "spock"];
     var randomNumber = 0;
+    
     $("#shoot").click(function(){
-        userChoice = $("#input").val();
+        userChoice = $("#input").val().toLowerCase();
         $("#userChoice").html(userChoice);
-        
-      randomNumber = Math.random();
-
-      //Use random number to generate a random computer choise
-      if (randomNumber <= 0.20) {
-        computerChoice = 'rock';
-      } else if (randomNumber <= 0.40) {
-        computerChoice = 'paper';
-      } else if (randomNumber <= 0.60) {
+        if(rpsls.includes(userChoice)){
+        randomNumber = Math.random();
+        //Use random number to generate a random computer choice
+        //use switch statements
+        if (randomNumber <= 0.20) {
+          computerChoice = 'rock';
+        } else if (randomNumber <= 0.40) {
+          computerChoice = 'paper';
+          
+        } else if (randomNumber <= 0.60) {
         computerChoice = 'lizard';
       } else if (randomNumber <= 0.80) {
         computerChoice = 'spock';
@@ -38,6 +40,7 @@ $(document).ready(function() {
        //Display the computer choice to the screen
       $("#computerChoice").html(computerChoice);
 
+      //would it be better to use switch statements here?
       if (userChoice==="rock"){
           if(computerChoice==="lizard"||computerChoice==="scissors"){
               //win
@@ -98,5 +101,6 @@ $(document).ready(function() {
       
       // Clears the input box
       $("#input").val("");
+        }
     });
 });
