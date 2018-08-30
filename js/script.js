@@ -20,7 +20,6 @@ $(document).ready(function() {
     $("#shoot").click(function(){
         userChoice = $("#input").val().toLowerCase();
         $("#userChoice").html(userChoice);
-        if(rpsls.includes(userChoice)){
         randomNumber = Math.random();
         //Use random number to generate a random computer choice
         //use switch statements
@@ -101,6 +100,5 @@ $(document).ready(function() {
       
       // Clears the input box
       $("#input").val("");
-        }
     });
 });
