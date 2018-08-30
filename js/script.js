@@ -17,6 +17,9 @@ $(document).ready(function() {
     var rpsls = ["rock", "paper", "scissors", "lizard", "spock"];
     var randomNumber = 0;
     
+    var userWins = 0;
+    var compWins = 0;
+    
     $("#shoot").click(function(){
         userChoice = $("#input").val().toLowerCase();
         $("#userChoice").html(userChoice);
@@ -40,55 +43,66 @@ $(document).ready(function() {
       $("#computerChoice").html(computerChoice);
 
       //would it be better to use switch statements here?
-      if (userChoice==="rock"){
+      if (userChoice.includes("rock")){
           if(computerChoice==="lizard"||computerChoice==="scissors"){
               //win
-              winner = "Computer Wins!";
+              winner = "User Wins!";
+              userWins++;
           }
           else if(computerChoice==="paper"||computerChoice==="spock"){
               //lose
               winner = "Computer Wins!";
+              compWins++;
           }
       }
-      else if (userChoice ==="paper"){
+      else if (userChoice.includes("paper")){
           if(computerChoice==="spock"||computerChoice==="rock"){
               //win
               winner = "User Wins!";
+              userWins++;
+
           }
           else if(computerChoice==="scissors"||computerChoice==="lizard"){
               //lose
               winner = "Computer Wins!";
+              compWins++;
           }
       }
-      else if (userChoice ==="scissors"){
+      else if (userChoice.includes("scissors")){
          if(computerChoice==="lizard"||computerChoice==="paper"){
               //win
               winner = "User Wins!";
+              userWins++;
           }
           else if(computerChoice==="rock"||computerChoice==="spock"){
               //lose
                winner = "Computer Wins!";
+               compWins++;
           }
       }
-      else if (userChoice ==="lizard"){
+      else if (userChoice.includes("lizard")){
           if(computerChoice==="paper"||computerChoice==="spock"){
               //win
               winner = "User Wins!";
+              userWins++;
           }
           else if(computerChoice==="rock"||computerChoice==="scissors"){
               //lose
               winner = "Computer Wins!";
+              compWins++;
           }
           
       }
-      else if (userChoice ==="spock"){
+      else if (userChoice.includes("spock")){
           if(computerChoice==="scissors"||computerChoice==="rock"){
               //win
               winner = "User Wins!";
+              userWins++;
           }
           else if(computerChoice==="paper"||computerChoice==="lizard"){
               //lose
               winner = "Computer Wins!";
+              compWins++;
           }          
       }
       else{
